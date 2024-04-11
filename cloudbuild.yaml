@@ -1,7 +1,7 @@
 steps:
   # Paso 2: Construir la imagen de Docker
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', 'src']
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', '.']
 
   # Paso 3: Etiquetar la imagen para Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
