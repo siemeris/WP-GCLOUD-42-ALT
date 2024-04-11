@@ -1,7 +1,19 @@
 steps:
-  # Paso 1: Clona el repositorio de GitHub
-  - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/siemeris/42-ALT-WP-GCLOUD.git', 'src']
+  # Paso 1: Obtener el token de GitHub desde Secret Manager y clonar el repositorio
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        # Obtener el token de GitHub desde Secret Manager
+        GITHUB_TOKEN=$(gcloud secrets versions access latest --secret="github-token")
+
+        # Configurar las credenciales de Git con el token de GitHub
+        git config --global credential.helper "store --file=/root/.git-credentials"
+        echo "https://${GITHUB_TOKEN}@github.com" > /root/.git-credentials
+
+        # Clonar el repositorio de GitHub
+        git clone https://github.com/siemeris/42-ALT-WP-GCLOUD src
 
     # Paso 1.5: Verifica el contenido del directorio clonado
   - name: 'gcr.io/cloud-builders/git'
