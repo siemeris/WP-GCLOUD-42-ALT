@@ -1,7 +1,7 @@
 steps:
   # Paso 1: Clona el repositorio de GitHub
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/siemeris/42-ALT-WP-GCLOUD.git', '.']
+    args: ['clone', 'https://github.com/siemeris/42-ALT-WP-GCLOUD.git', 'src']
 
     # Paso 1.5: Verifica el contenido del directorio clonado
   - name: 'gcr.io/cloud-builders/git'
@@ -9,7 +9,7 @@ steps:
 
   # Paso 2: Construir la imagen de Docker
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', '.']
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', 'src']
 
   # Paso 3: Etiquetar la imagen para Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
