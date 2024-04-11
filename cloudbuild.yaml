@@ -1,0 +1,35 @@
+steps:
+  # Paso 1: Clona el repositorio de GitHub
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/siemeris/42-ALT-WP-GCLOUD.git', '.']
+
+    # Paso 1.5: Verifica el contenido del directorio clonado
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['ls', '.']
+
+  # Paso 2: Construir la imagen de Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', '.']
+
+  # Paso 3: Etiquetar la imagen para Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['tag', 'gcr.io/$PROJECT_ID/your-image-name', 'eu.artifacts.$PROJECT_ID/your-repo-name/your-image-name:latest']
+
+  # Paso 4: Subir la imagen al Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'eu.artifacts.$PROJECT_ID/your-repo-name/your-image-name:latest']
+
+
+
+# steps:
+#   # Construir la imagen de Docker
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/your-repo-name/your-image-name:latest', '.']
+#   # Autenticar para Artifact Registry
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['--', 'login', '-u', 'oauth2accesstoken', '-p', '$(gcloud auth print-access-token)', 'https://us-central1-docker.pkg.dev']
+#   # Subir la imagen de Docker a Artifact Registry
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/your-repo-name/your-image-name:latest']
+
+
