@@ -1,8 +1,4 @@
 steps:
-    # Paso 1.5: Verifica el contenido del directorio clonado
-  - name: 'gcr.io/cloud-builders/git'
-    args: ['ls', '.']
-
   # Paso 2: Construir la imagen de Docker
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-image-name', 'src']
