@@ -9,7 +9,7 @@ steps:
 
   # Paso 4: Subir la imagen al Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'eu.artifacts.$PROJECT_ID/your-repo-name/your-image-name:latest']
+    args: ['push', 'gcr.io/$PROJECT_ID/your-repo-name/your-image-name']
 
 
 
