@@ -1,0 +1,51 @@
+#sistContainer .nav-tab {
+    max-width: 16.66666666666%;
+}
+
+.network-admin #sistContainer .nav-tab {
+    width: 33.33333% !important;
+    max-width: 33.33333%;
+}
+
+#sistContainer #sistContent {
+    width: auto !important;
+    max-width: 100% !important;
+}
+
+#github-add, #github-delete, #create-index, #create-form-config {
+    margin-left: 10px;
+}
+
+#github-delete, #create-index, #create-form-config {
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0;
+}
+
+#github .button-primary, #search .button-primary, #form .button-primary {
+    float: left;
+}
+
+.ssp-success {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #7200e5;
+}
+
+.simply-static-spinner {
+    background: #7200e5;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: white;
+    height: 30px;
+    line-height: 26px;
+    box-sizing: border-box;
+}
+
+.simply-static-spinner.hidden { display: none; }
+
+#ssp-trigger-static-export.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

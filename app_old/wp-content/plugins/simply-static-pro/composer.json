@@ -1,0 +1,33 @@
+{
+  "name": "patrickposner/simply-static",
+  "description": "A simple WordPress static site generator",
+  "type": "wordpress-plugin",
+  "require": {
+    "knplabs/github-api": "3.10.0",
+    "guzzlehttp/guzzle": "^7.2",
+    "http-interop/http-factory-guzzle": "^1.0",
+    "algolia/algoliasearch-client-php": "^3.1",
+    "voku/html-min": "^4.5",
+    "tedivm/jshrink": "1.6.8",
+    "aws/aws-sdk-php": "^3.277"
+  },
+  "license": "gpl",
+  "authors": [
+    {
+      "name": "Patrick Posner",
+      "email": "hello@patrickposner.de"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/patrickposner/simply-static/issues",
+    "source": "https://github.com/patrickposner/simply-static/"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4.0"
+    },
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  }
+}
