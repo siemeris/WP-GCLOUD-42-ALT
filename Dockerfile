@@ -15,3 +15,7 @@ RUN docker-php-ext-install zip \
 
 WORKDIR /var/www/html
 COPY ./app /var/www/html/ 
+
+RUN mkdir -p /var/www/html/wp-content/uploads/simply-static/temp-files
+RUN chown -R www-data:www-data /var/www/html/wp-content/uploads
+RUN chmod -R 755 /var/www/html/wp-content/uploads
