@@ -3,14 +3,18 @@ steps:
   args: ['build', '-t', 'europe-southwest1-docker.pkg.dev/${PROJECT_ID}/your-repo-name/your-image-name:${SHORT_SHA}', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'europe-southwest1-docker.pkg.dev/${PROJECT_ID}/your-repo-name/your-image-name:${SHORT_SHA}']
+# lanzamiento en Google Cloud Deploy
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
-  args: [
-    'beta', 'deploy', 'releases', 'create', 'release-${SHORT_SHA}',
-    '--project', '${PROJECT_ID}', '--region', 'europe-southwest1',
-    '--delivery-pipeline', 'sample-pipeline',
-    '--images', 'my-app=europe-southwest1-docker.pkg.dev/${PROJECT_ID}/your-repo-name/your-image-name:${SHORT_SHA}'
-  ]
+  args:
+    - 'deploy'
+    - 'releases'
+    - 'create'
+    - 'release-${SHORT_SHA}'
+    - '--project=${PROJECT_ID}'
+    - '--region=europe-southwest1'
+    - '--delivery-pipeline=sample-pipeline'
+    - '--images=my-app=europe-southwest1-docker.pkg.dev/${PROJECT_ID}/your-repo-name/your-image-name:${SHORT_SHA}'
 
 #steps:
 #  # Paso 2: Construir la imagen de Docker
