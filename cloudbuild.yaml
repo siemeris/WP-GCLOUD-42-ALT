@@ -10,7 +10,7 @@ steps:
     - 'run'
     - 'deploy'
     - 'my-wordpress-app'
-    - '--image=gcr.io/${PROJECT_ID}/your-image-name:${SHORT_SHA}'
+    - '--image=europe-southwest1-docker.pkg.dev/${PROJECT_ID}/your-repo-name/your-image-name:${SHORT_SHA}'
     - '--region=europe-southwest1'
     - '--platform=managed'
 
