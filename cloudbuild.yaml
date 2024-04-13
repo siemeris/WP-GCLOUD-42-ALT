@@ -7,14 +7,12 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'gcloud'
   args:
+    - 'run'
     - 'deploy'
-    - 'releases'
-    - 'create'
-    - 'release-${SHORT_SHA}'
-    - '--project=${PROJECT_ID}'
+    - 'my-wordpress-app'
+    - '--image=gcr.io/${PROJECT_ID}/your-image-name:${SHORT_SHA}'
     - '--region=europe-southwest1'
-    - '--delivery-pipeline=sample-pipeline'
-    - '--images=my-app=europe-southwest1-docker.pkg.dev/${PROJECT_ID}/your-repo-name/your-image-name:${SHORT_SHA}'
+    - '--platform=managed'
 
 #steps:
 #  # Paso 2: Construir la imagen de Docker
