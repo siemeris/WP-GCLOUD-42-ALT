@@ -13,6 +13,8 @@ RUN docker-php-ext-install zip \
     && docker-php-ext-install -j "$(nproc)" gd \
     && a2enmod rewrite
 
+RUN echo 'memory_limit = 1G' > /usr/local/etc/php/conf.d/memory-limit.ini
+
 WORKDIR /var/www/html
 COPY ./app /var/www/html/ 
 
